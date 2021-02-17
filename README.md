@@ -15,6 +15,14 @@ the streaming funcionality uses roslibpy 1.2.0, which has to be installed
 
 ---
 
+install isntructions
+
+currently the blendeRos folder news to be placed under
+/home/userfolder/.config/blender/2.83/scripts/addons/   in linux
+windows and mac haven't been tested yet
+
+---
+
 TODO
 
 currently the addon looks for a specific model (staubli's tx60)
