@@ -4,6 +4,7 @@ blendeRos is a blender addon to extract joint positions from a rigged/simulated 
 wip: blenderROS is intended to feature a communication to ROS using roslibpy (and rosbridge_server)
 
 ---
+### features
 
 the addon will insert a sidebar panel (shortcut 'N') where IK can be enabled dissabled
 joint positions can be visualized in both modes in degrees
@@ -15,7 +16,12 @@ the streaming funcionality uses roslibpy 1.2.0, which has to be installed
 
 ---
 
-install isntructions
+a blender demo file is included. the file contains a tx60 rigged module with the iTaSC solver configured
+limits are not set but can easily set up under bone constrains
+
+---
+
+### instructions to install
 
 currently the blendeRos folder news to be placed under
 /home/userfolder/.config/blender/2.83/scripts/addons/   in linux
@@ -23,7 +29,7 @@ windows and mac haven't been tested yet
 
 ---
 
-TODO
+### TODO
 
 currently the addon looks for a specific model (staubli's tx60)
 currently the streaming functionality is a stub
@@ -31,5 +37,4 @@ tx60 streaming to ROS is not supported by the [staubli_val3_driver](http://wiki.
 
 ---
 
-a blender demo file is included. the file contains a tx60 rigged module with the iTaSC solver configured
-limits are not set but can easily set up under bone constrains
+
