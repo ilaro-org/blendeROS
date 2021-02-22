@@ -24,10 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 bl_info = {
     "name": "BlendeRos",
     "author": "info @ ilaro.org",
-    "version": (0, 1),
-    "blender": (2, 83, 0),
+    "version": (0, 2),
+    "blender": (2, 83, 12),
     "location": "View3D > Sidebar > tx60",
-    "description": "tx60 control and stream to ROS",
+    "description": "tx60 fk/iw motion planning using animation + followJintrTrajectory action delivery to ROS",
     "warning": "",
     "wiki_url": "",
     "category": "3D View"}
@@ -40,8 +40,7 @@ from bpy.props import PointerProperty
 from . Globals import Controls
 from . Robot_Joints import JointsHandler
 from . Robot_Joints import ROBOT_OT_reset
-from . Stream import ROS_OT_stream
-from . Stream import Stream
+from . Action import ROS_OT_action
 from . Panel import ROBOT_PT_tx60
 
 
@@ -50,9 +49,9 @@ from . Panel import ROBOT_PT_tx60
 # ------------------------------------------------------------------------
 classes = (
     Controls,
-    ROBOT_PT_tx60,
     ROBOT_OT_reset,
-    ROS_OT_stream,
+    ROS_OT_action,
+    ROBOT_PT_tx60,
 )
 
 def register():
@@ -60,14 +59,19 @@ def register():
         register_class(cls)
 
     bpy.types.Scene.controls = PointerProperty(type=Controls)
-
     bpy.app.handlers.depsgraph_update_post.append(JointsHandler)
 
+    print("-> registered blendeRos")
+
 def unregister():
+    for h in bpy.app.handlers.depsgraph_update_post:
+        if h.__name__ == 'JointsHandler':
+            bpy.app.handlers.depsgraph_update_post.remove(h)
 
-    bpy.app.handlers.depsgraph_update_post.remove(JointsHandler)
-
+    # bpy.app.handlers.depsgraph_update_post.remove(JointsHandler)
     del bpy.types.Scene.controls
 
     for cls in reversed(classes):
         unregister_class(cls)
+
+    print("< unregistered blendeRos")
