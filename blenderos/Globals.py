@@ -54,10 +54,18 @@ class Controls(PropertyGroup):
         default = 0,
         )
 
+    speed: FloatProperty(
+        name="speed",
+        description="joint speeds",
+        default = 0.5,
+        # hard_max = 1.0,
+        # hard_min = 0.01,
+        )
+
     ip_address: StringProperty(
         name="ip",
         description="websocket ip",
-        default = "localhost",
+        default = "192.168.1.128",
         )
     ip_port: StringProperty(
         name="port",

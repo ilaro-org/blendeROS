@@ -22,6 +22,9 @@ class ROBOT_PT_tx60(bpy.types.Panel):
         return bpy.data.objects['staubliTX60']
 
     def draw(self, context):
+
+        global connected
+
         layout = self.layout
         layout.use_property_split = True
         layout.use_property_decorate = False # True to show "add keyframe dot · "
@@ -40,23 +43,30 @@ class ROBOT_PT_tx60(bpy.types.Panel):
         for i in range(6):
             c1.label(text="joint" + str(i+1) + "  :  ")
         c2 = s.column()
-        # c2.label(text=str(degrees(controls.j1)))
-        # c2.label(text=str(degrees(controls.j2)))
-        # c2.label(text=str(degrees(controls.j3)))
-        # c2.label(text=str(degrees(controls.j4)))
-        # c2.label(text=str(degrees(controls.j5)))
-        # c2.label(text=str(degrees(controls.j6)))
-        c2.label(text=str((controls.j1)))
-        c2.label(text=str((controls.j2)))
-        c2.label(text=str((controls.j3)))
-        c2.label(text=str((controls.j4)))
-        c2.label(text=str((controls.j5)))
-        c2.label(text=str((controls.j6)))
+        c2.label(text=str(degrees(controls.j1)))
+        c2.label(text=str(degrees(controls.j2)))
+        c2.label(text=str(degrees(controls.j3)))
+        c2.label(text=str(degrees(controls.j4)))
+        c2.label(text=str(degrees(controls.j5)))
+        c2.label(text=str(degrees(controls.j6)))
+        # c2.label(text=str((controls.j1)))
+        # c2.label(text=str((controls.j2)))
+        # c2.label(text=str((controls.j3)))
+        # c2.label(text=str((controls.j4)))
+        # c2.label(text=str((controls.j5)))
+        # c2.label(text=str((controls.j6)))
         layout.operator("robot.reset")
         layout.separator()
         layout.separator()
+
+        # if connected==True :
+        layout.prop(controls, "speed", text="overall speed [0 - 1]")
+        layout.operator("ros.action")
+        layout.separator()
+        layout.separator()
+
         box=layout.box()
-        s = box.split(factor=0.5)
+        s = box.split(factor=0.7)
         c1 = s.column()
         c1.alignment = 'RIGHT'
         # c1.label(text = "ip")
@@ -64,4 +74,4 @@ class ROBOT_PT_tx60(bpy.types.Panel):
         c2 = s.column()
         # c2.label(text="port")
         c2.prop(controls, "ip_port", text="ip port")
-        layout.operator("ros.action")
+        layout.operator("ros.connect")

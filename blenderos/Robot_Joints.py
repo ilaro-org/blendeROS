@@ -23,24 +23,24 @@ def JointsHandler(scene):
         b6 = bpy.data.objects['staubliTX60'].pose.bones["joint_6"]
 
         c.j1 = (b0.matrix.inverted()@b1.matrix).to_euler()[1]
-        c.j2 = (b1.matrix.inverted()@b2.matrix).to_euler()[2]
-        c.j3 = (b2.matrix.inverted()@b3.matrix).to_euler()[2]
+        c.j2 = -(b1.matrix.inverted()@b2.matrix).to_euler()[2]
+        c.j3 = -(b2.matrix.inverted()@b3.matrix).to_euler()[2]
         c.j4 = (b3.matrix.inverted()@b4.matrix).to_euler()[1]
-        c.j5 = (b4.matrix.inverted()@b5.matrix).to_euler()[2]
+        c.j5 = -(b4.matrix.inverted()@b5.matrix).to_euler()[2]
         c.j6 = (b5.matrix.inverted()@b6.matrix).to_euler()[1]
-        print("IK *>")
+        # print("IK *>")
 
     else:
         # get join rotations in fordware kinematics mode
         c.j1 = bpy.data.objects['staubliTX60'].pose.bones["joint_1"].matrix_basis.to_euler()[1]
-        c.j2 = bpy.data.objects['staubliTX60'].pose.bones["joint_2"].matrix_basis.to_euler()[2]
-        c.j3 = bpy.data.objects['staubliTX60'].pose.bones["joint_3"].matrix_basis.to_euler()[2]
+        c.j2 = -bpy.data.objects['staubliTX60'].pose.bones["joint_2"].matrix_basis.to_euler()[2]
+        c.j3 = -bpy.data.objects['staubliTX60'].pose.bones["joint_3"].matrix_basis.to_euler()[2]
         c.j4 = bpy.data.objects['staubliTX60'].pose.bones["joint_4"].matrix_basis.to_euler()[1]
-        c.j5 = bpy.data.objects['staubliTX60'].pose.bones["joint_5"].matrix_basis.to_euler()[2]
+        c.j5 = -bpy.data.objects['staubliTX60'].pose.bones["joint_5"].matrix_basis.to_euler()[2]
         c.j6 = bpy.data.objects['staubliTX60'].pose.bones["joint_6"].matrix_basis.to_euler()[1]
-        print("FK *>")
+        # print("FK *>")
 
-    print("j1: "+str(c.j1)+"     j2: "+str(c.j2)+"     j3: "+str(c.j3)+"     j4: "+str(c.j4)+"     j5: "+ str(c.j5)+"     j6: "+str(c.j6))
+    # print("j1: "+str(c.j1)+"     j2: "+str(c.j2)+"     j3: "+str(c.j3)+"     j4: "+str(c.j4)+"     j5: "+ str(c.j5)+"     j6: "+str(c.j6))
 
 
 # ------------------------------------------------------------------------

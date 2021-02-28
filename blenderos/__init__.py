@@ -41,6 +41,7 @@ from . Globals import Controls
 from . Robot_Joints import JointsHandler
 from . Robot_Joints import ROBOT_OT_reset
 from . Action import ROS_OT_action
+from . Action import ROS_OT_connect
 from . Panel import ROBOT_PT_tx60
 
 
@@ -51,6 +52,7 @@ classes = (
     Controls,
     ROBOT_OT_reset,
     ROS_OT_action,
+    ROS_OT_connect,
     ROBOT_PT_tx60,
 )
 
