@@ -1,4 +1,4 @@
-# blendeRos
+# blendeROS
 
 blendeROS is a blender addon to extract joint positions from a rigged/simulated robot and control a real robot arm using ROS indusstrial by sending actions.
 
