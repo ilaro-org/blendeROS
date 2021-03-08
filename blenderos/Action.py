@@ -77,17 +77,18 @@ def connect():
     global client
 
     if not connected:
-        print("connecting")
         c=bpy.context.scene.controls
         print("ip " + c.ip_address)
         print("port " + c.ip_port)
         print(type(c.ip_port))
 
-        client = roslibpy.Ros(host=c.ip_address, port=int(c.ip_port)) #
+        client = roslibpy.Ros(host=str(c.ip_address), port=int(c.ip_port)) #
         client.run()
+        print("CONNECTED")
 
     else:
         client.close() #terminate?
+        print("DISCONNECTED")
 
     connected = not connected
 

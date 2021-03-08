@@ -65,7 +65,7 @@ class Controls(PropertyGroup):
     ip_address: StringProperty(
         name="ip",
         description="websocket ip",
-        default = "192.168.1.128",
+        default = "192.168.0.114",
         )
     ip_port: StringProperty(
         name="port",
