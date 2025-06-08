@@ -7,14 +7,14 @@ blendeROS uses roslibpy to send actions (followJointTrajectoryGoal) to ROS throu
 ---
 ### features
 
-the addon will insert a sidebar panel (shortcut 'N') where IK can be enabled dissabled
+the addon will insert a sidebar panel (shortcut 'N') where IK can be enabled/dissabled
 
 joint positions can be visualized in both modes in degrees
 
 there is a 'reset to rest position', a (dis/)connect to rosbridge button and a button to build and send actions from the animation. in addition a velocity slider allows to control the speed from 0.0 to 1.0 (0-100%)
 
-roslibpy 1.2.0 has to be installed 
- * either using blenders bundles python (using pip)
+roslibpy 1.2.0 has to be installed, either by...
+ * using blenders bundles python (using pip)
  * removing blender's python and using system's python (untested)
 
 ---
@@ -35,6 +35,6 @@ windows and mac haven't been tested yet
 
 currently the addon looks for a specific model (staubli's tx60)
 
-tx60 streaming to ROS is not supported by the [staubli_val3_driver](http://wiki.ros.org/staubli_val3_driver)
+current mode is unidirectional, (in 2021) tx60 streaming to ROS is not yet supported by the [staubli_val3_driver](http://wiki.ros.org/staubli_val3_driver)
 
-
+![blendeROS](/blenderos/captura_rig staubli tx60.png)
