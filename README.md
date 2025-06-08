@@ -37,4 +37,4 @@ currently the addon looks for a specific model (staubli's tx60)
 
 current mode is unidirectional, (in 2021) tx60 streaming to ROS is not yet supported by the [staubli_val3_driver](http://wiki.ros.org/staubli_val3_driver)
 
-![blendeROS](/blenderos/captura_rig staubli tx60.png)
+![blendeROS](blenderos/captura_rig staubli tx60.png)
